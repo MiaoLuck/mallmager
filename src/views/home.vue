@@ -88,6 +88,11 @@ export default {
     },
     methods: {
         //退出功能
+
+
+
+
+        
         handleSignout() {
            sessionStorage.clear()
            this.$router.push({name:'login'})
