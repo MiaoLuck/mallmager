@@ -71,7 +71,9 @@
     </el-submenu>
           </el-menu>
         </el-aside>
-    <el-main class="main">Main</el-main>
+    <el-main class="main">
+        <router-view></router-view>
+    </el-main>
   </el-container>
 </el-container>
 </template>
@@ -88,11 +90,6 @@ export default {
     },
     methods: {
         //退出功能
-
-
-
-
-        
         handleSignout() {
            sessionStorage.clear()
            this.$router.push({name:'login'})
