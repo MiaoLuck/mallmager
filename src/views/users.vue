@@ -1,12 +1,9 @@
 <template>
 <!-- 卡片容器 -->
 <el-card class="box-card">
+
 <!-- 面包屑 -->
-    <el-breadcrumb separator="/">
-  <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-  <el-breadcrumb-item>用户管理</el-breadcrumb-item>
-  <el-breadcrumb-item>用户列表</el-breadcrumb-item>
-</el-breadcrumb>
+<my-bread level1="用户管理" level2="用户列表"></my-bread>
 <!-- 搜索框 -->
 <div style="margin-top: 15px;">
     <el-row>
@@ -201,7 +198,7 @@ export default {
     const res =await this.$http.put(`users/${this.getRoleByUserId}/role`,{
       rid:this.currRoleId
     })
-    console.log(res)
+    // console.log(res)
   },
      //分配角色。显示对话框
      async showRole(user){
@@ -288,9 +285,9 @@ this.dialogFormVisibleAdduser = false
         this.loadData()
       },
      //用户状态
-      async changeMgState() {
+      async changeMgState(user) {
         const res = await this.$http.put(`users/${user.id}/state/${user.mg_state}`)
-        console.log(res)
+        // console.log(res)
       },
       //分页处理
   handleSizeChange(val) {
@@ -305,9 +302,7 @@ this.dialogFormVisibleAdduser = false
   },
      async loadData() {
        this.loading = true
-           //需要设置请求头=token
-    const AUTH_TOKEN = sessionStorage.getItem("token")
-    this.$http.defaults.headers.common["Authorization"] = AUTH_TOKEN
+          
     const res = await this.$http.get(`users?pagenum=${this.pagenum}&pagesize=${this.pagesize}&query=${this.searchValue}`)
     console.log(res);
     const {meta,data} = res.data

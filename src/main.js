@@ -8,12 +8,20 @@ import 'element-ui/lib/theme-chalk/index.css'
 import HttpTool from '@/plugins/http.js'
 import moment from 'moment'
 import '@/assets/css/index.css'
-// import moment = require('moment');
 
+
+// 面包屑
+import myBread from '@/components/my-bread.vue'
 
 Vue.use(ElementUI)
 Vue.use(HttpTool)
 Vue.config.productionTip = false
+
+//全局面包屑
+Vue.component('my-bread',myBread)
+
+
+
 //全局过滤器
 // 格式化日期
 Vue.filter('fmtDate',(value) => {
