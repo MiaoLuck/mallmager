@@ -212,7 +212,7 @@ export default {
     //通过users/：id请求 获取当前用户的rid
 
       const res1 = await this.$http.get(`users/${user.id}`)
-      // console.log(res1)
+      // console.log(res1)H
       this.currRoleId = res1.data.data.rid
      },
      //编辑用户提交
@@ -223,7 +223,7 @@ this.dialogFormVisibleEdituser = false
   // console.log(res)
   const {meta:{msg,status}} = res.data
     if(status === 200) {
-      this.$message.success(msg)
+      // this.$message.success(msg)
       // this.loadData()
     }
 },
@@ -240,7 +240,7 @@ this.dialogFormVisibleAdduser = false
     // console.log(res)
     const {meta:{status,msg}} = res.data
     if(status === 201) {
-      this.$message.success(msg)
+      // this.$message.success(msg)
       this.loadData()
       for (const key in this.formData) {
         this.formData[key] = ''
@@ -304,7 +304,7 @@ this.dialogFormVisibleAdduser = false
        this.loading = true
           
     const res = await this.$http.get(`users?pagenum=${this.pagenum}&pagesize=${this.pagesize}&query=${this.searchValue}`)
-    console.log(res);
+    // console.log(res);
     const {meta,data} = res.data
         if(meta.status === 200) {
           this.total = res.data.data.total
